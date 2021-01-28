@@ -17,17 +17,16 @@ module.exports = {
       ]
     ]
   },
+
   plugins: [
     {
       rules: {
         'ticket-number-check-rule': ({ subject }) => {
-          const ACCEPT_PATTERN = '\s#[0-9]+\s';
-          if (subject != null) {
-            return [
-              !subject.match(ACCEPT_PATTERN),
-              'コミットメッセージは{プレフィックス}: #{チケット番号} {本文}の形式にしてください。',
-            ];
-          }
+          const ACCEPT_PATTERN = /#[0-9]+\s.*/;
+          return [
+            ACCEPT_PATTERN.test(subject),
+            `The commit message should be in the following format: "{prefix}: #{ticket number} {subject}"`,
+          ];
         }
       }
     }
