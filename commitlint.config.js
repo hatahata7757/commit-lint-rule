@@ -1,7 +1,7 @@
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
-    'ticket-number-check-rule': [2, 'always'],
+    'issue-number-check-rule': [2, 'always'],
     'type-enum': [
       2,
       'always',
@@ -21,11 +21,11 @@ module.exports = {
   plugins: [
     {
       rules: {
-        'ticket-number-check-rule': ({ subject }) => {
+        'issue-number-check-rule': ({ subject }) => {
           const ACCEPT_PATTERN = /#[0-9]+\s.*/;
           return [
             ACCEPT_PATTERN.test(subject),
-            `The commit message should be in the following format: "{prefix}: #{ticket number} {subject}"`,
+            `The commit message should be in the following format: "{prefix}: #{issue number} {subject}"`,
           ];
         }
       }
