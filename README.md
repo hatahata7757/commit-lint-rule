@@ -2,7 +2,7 @@
 My own commitlint-rule.
 
 ## Rules
-`issue-number-check-rule` - This rule checks if the commit message matches the specified pattern.
+`subject-issue-number-empty` - This rule checks if the commit message matches the specified pattern.
 
 `{type}: #{issue number} {subject}`
 
@@ -23,7 +23,7 @@ module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
   // to Customise/Override a rule
-+  'issue-number-check-rule': [2, 'always'],
++  'subject-issue-number-empty': [2, 'always'],
 +  'type-enum': [
 +     2,
 +     'always',
