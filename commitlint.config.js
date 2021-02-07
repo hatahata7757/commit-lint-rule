@@ -1,7 +1,7 @@
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
-    'issue-number-check-rule': [2, 'always'],
+    'subject-issue-number-empty': [2, 'always'],
     'type-enum': [
       2,
       'always',
@@ -21,7 +21,7 @@ module.exports = {
   plugins: [
     {
       rules: {
-        'issue-number-check-rule': ({ subject }) => {
+        'subject-issue-number-empty': ({ subject }) => {
           const ACCEPT_PATTERN = /#[0-9]+\s.*/;
           return [
             ACCEPT_PATTERN.test(subject),
