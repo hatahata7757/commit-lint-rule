@@ -1,3 +1,5 @@
+const subjectIssueNumberEmpty = require('./rules/subject-issue-number-empty');
+
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
@@ -21,15 +23,8 @@ module.exports = {
   plugins: [
     {
       rules: {
-        'subject-issue-number-empty': ({ subject }) => {
-          const ACCEPT_PATTERN = /#[0-9]+\s.*/;
-          return [
-            ACCEPT_PATTERN.test(subject),
-            `The commit message should be in the following format: "{prefix}: #{issue number} {subject}"`,
-          ];
-        }
+        'subject-issue-number-empty': subjectIssueNumberEmpty
       }
     }
   ]
-
 };
